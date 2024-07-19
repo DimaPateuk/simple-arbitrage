@@ -6,8 +6,8 @@
   "types": "build/index.d.ts",
   "scripts": {
     "start": "tsx src/index.ts",
-    "test": "npx ts-node node_modules/jasmine/bin/jasmine --config=jasmine.json",
-    "build": "npx tsc",
+    "test": "ts-node node_modules/jasmine/bin/jasmine --config=jasmine.json",
+    "build": "tsc",
     "prepare": "npm run build",
     "lint": "npx eslint src"
   },
@@ -23,6 +23,7 @@
     "ethers": "^5.0.23",
     "jasmine": "^3.6.3",
     "nyc": "^15.1.0",
+    "tsc": "^2.0.4",
     "tsx": "^4.16.2"
   },
   "peerDependencies": {
