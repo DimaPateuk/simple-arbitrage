@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "start": "tsx src/index.ts",
     "test": "npx ts-node node_modules/jasmine/bin/jasmine --config=jasmine.json",
     "build": "npx tsc",
     "prepare": "npm run build",
@@ -22,7 +22,8 @@
     "eslint": "^7.15.0",
     "ethers": "^5.0.23",
     "jasmine": "^3.6.3",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "tsx": "^4.16.2"
   },
   "peerDependencies": {
     "ethers": "^5.0.23"
