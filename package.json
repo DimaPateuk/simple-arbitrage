@@ -2,6 +2,8 @@
   "name": "@flashbots/simple-arbitrage",
   "version": "0.0.1",
   "description": "",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
     "start": "tsx src/index.ts",
     "test": "ts-node node_modules/jasmine/bin/jasmine --config=jasmine.json",
