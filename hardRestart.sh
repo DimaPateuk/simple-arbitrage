@@ -1,4 +1,4 @@
-cd ~/arbitrage-second-try
+cd ~/simple-arbitrage
 
 pwd
 
