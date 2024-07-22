@@ -157,7 +157,7 @@ export class UniswappyV2EthPair extends EthMarket {
     const pairAddresses = allMarketPairs.map(
       (marketPair) => marketPair.marketAddress
     );
-    // console.log("Updating markets, count:", pairAddresses.length)
+    console.log("Updating markets, count:", pairAddresses.length);
     const reserves: Array<Array<BigNumber>> = (
       await uniswapQuery.functions.getReservesByPairs(pairAddresses)
     )[0];
