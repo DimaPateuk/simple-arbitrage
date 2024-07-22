@@ -6,8 +6,8 @@ import { FACTORY_ADDRESSES } from "./addresses";
 import { Arbitrage } from "./Arbitrage";
 import { get } from "https";
 import { getDefaultRelaySigningKey } from "./utils";
-import dotenv from "dotenv";
-dotenv.config();
+import { config } from "dotenv";
+config();
 
 const ETHEREUM_RPC_URL =
   process.env.ETHEREUM_RPC_URL || "http://127.0.0.1:8545";
