@@ -6,8 +6,9 @@
   "types": "build/index.d.ts",
   "scripts": {
     "start": "tsx src/index.ts",
+    "start2": "./node_modules/.bin/tsx src/index.ts",
     "test": "ts-node node_modules/jasmine/bin/jasmine --config=jasmine.json",
-    "build": "",
+    "build": "tsc",
     "prepare": "npm run build",
     "lint": "npx eslint src"
   },
