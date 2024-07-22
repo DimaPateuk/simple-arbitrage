@@ -7,7 +7,7 @@
   "scripts": {
     "start": "tsx src/index.ts",
     "test": "ts-node node_modules/jasmine/bin/jasmine --config=jasmine.json",
-    "build": "tsc",
+    "build": "",
     "prepare": "npm run build",
     "lint": "npx eslint src"
   },
@@ -22,8 +22,9 @@
     "eslint": "^7.15.0",
     "ethers": "^5.0.23",
     "jasmine": "^3.6.3",
-    "tsc": "^2.0.4",
-    "tsx": "^4.16.2"
+    "ts-node": "^10.9.2",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3"
   },
   "peerDependencies": {
     "ethers": "^5.0.23"
@@ -31,8 +32,6 @@
   "dependencies": {
     "@flashbots/ethers-provider-bundle": "^0.3.1",
     "dotenv": "^16.4.5",
-    "lodash": "^4.17.21",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.1.2"
+    "lodash": "^4.17.21"
   }
 }
