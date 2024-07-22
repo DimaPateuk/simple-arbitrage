@@ -1,11 +1,10 @@
-cd ~/arbitrage-second-try
+cd ~/simple-arbitrage
 
 pwd
 
 git pull
 
-folderName=$1
-serviceName=$2
+serviceName=$1
 
 systemctl stop $serviceName
 
@@ -18,9 +17,6 @@ cat /lib/systemd/system/$serviceName.service
 systemctl daemon-reload
 
 systemctl enable $serviceName
-# systemctl status $serviceName
-#
-echo $folderName
 echo $serviceName
 
 echo "-------------"

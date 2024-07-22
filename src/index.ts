@@ -81,7 +81,7 @@ async function main() {
       markets.marketsByToken
     );
     if (bestCrossedMarkets.length === 0) {
-      // console.log("No crossed markets");
+      //   console.log("No crossed markets");
       return;
     }
     bestCrossedMarkets.forEach(Arbitrage.printCrossedMarket);
