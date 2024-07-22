@@ -1,33 +1,38 @@
-Jul 22 09:28:26 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Started binance.
-Jul 22 09:28:26 ubuntu-s-1vcpu-512mb-10gb-ams3-01 npm[2636287]: /usr/bin/env: ‘node’: No such file or directory
-Jul 22 09:28:26 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Main process exited, code=exited, status=127/n/a
-Jul 22 09:28:26 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Failed with result 'exit-code'.
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Scheduled restart job, restart counter is at 1.
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Stopped binance.
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 npm[2636290]: /usr/bin/env: ‘node’: No such file or directory
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Started binance.
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Main process exited, code=exited, status=127/n/a
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Failed with result 'exit-code'.
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Scheduled restart job, restart counter is at 2.
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Stopped binance.
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 npm[2636291]: /usr/bin/env: ‘node’: No such file or directory
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Started binance.
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Main process exited, code=exited, status=127/n/a
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Failed with result 'exit-code'.
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Scheduled restart job, restart counter is at 3.
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Stopped binance.
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Started binance.
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 npm[2636292]: /usr/bin/env: ‘node’: No such file or directory
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Main process exited, code=exited, status=127/n/a
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Failed with result 'exit-code'.
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Scheduled restart job, restart counter is at 4.
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Stopped binance.
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Started binance.
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 npm[2636293]: /usr/bin/env: ‘node’: No such file or directory
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Main process exited, code=exited, status=127/n/a
-Jul 22 09:28:27 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Failed with result 'exit-code'.
-Jul 22 09:28:28 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Scheduled restart job, restart counter is at 5.
-Jul 22 09:28:28 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Stopped binance.
-Jul 22 09:28:28 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Start request repeated too quickly.
-Jul 22 09:28:28 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Failed with result 'exit-code'.
-Jul 22 09:28:28 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Failed to start binance.
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[2636515]: simpleArbitrage.service: Failed to locate executable npm: No such file or directory
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[2636515]: simpleArbitrage.service: Failed at step EXEC spawning npm: No such file or directory
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Started binance.
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Main process exited, code=exited, status=203/EXEC
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Failed with result 'exit-code'.
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Scheduled restart job, restart counter is at 1.
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Stopped binance.
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[2636518]: simpleArbitrage.service: Failed to locate executable npm: No such file or directory
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[2636518]: simpleArbitrage.service: Failed at step EXEC spawning npm: No such file or directory
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Started binance.
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Main process exited, code=exited, status=203/EXEC
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Failed with result 'exit-code'.
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Scheduled restart job, restart counter is at 2.
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Stopped binance.
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[2636519]: simpleArbitrage.service: Failed to locate executable npm: No such file or directory
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[2636519]: simpleArbitrage.service: Failed at step EXEC spawning npm: No such file or directory
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Started binance.
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Main process exited, code=exited, status=203/EXEC
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Failed with result 'exit-code'.
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Scheduled restart job, restart counter is at 3.
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Stopped binance.
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[2636520]: simpleArbitrage.service: Failed to locate executable npm: No such file or directory
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[2636520]: simpleArbitrage.service: Failed at step EXEC spawning npm: No such file or directory
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Started binance.
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Main process exited, code=exited, status=203/EXEC
+Jul 22 09:30:30 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Failed with result 'exit-code'.
+Jul 22 09:30:31 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Scheduled restart job, restart counter is at 4.
+Jul 22 09:30:31 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Stopped binance.
+Jul 22 09:30:31 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[2636521]: simpleArbitrage.service: Failed to locate executable npm: No such file or directory
+Jul 22 09:30:31 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[2636521]: simpleArbitrage.service: Failed at step EXEC spawning npm: No such file or directory
+Jul 22 09:30:31 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Started binance.
+Jul 22 09:30:31 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Main process exited, code=exited, status=203/EXEC
+Jul 22 09:30:31 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Failed with result 'exit-code'.
+Jul 22 09:30:31 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Scheduled restart job, restart counter is at 5.
+Jul 22 09:30:31 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Stopped binance.
+Jul 22 09:30:31 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Start request repeated too quickly.
+Jul 22 09:30:31 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: simpleArbitrage.service: Failed with result 'exit-code'.
+Jul 22 09:30:31 ubuntu-s-1vcpu-512mb-10gb-ams3-01 systemd[1]: Failed to start binance.

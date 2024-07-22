@@ -1,5 +1,5 @@
 [Unit]
-Description=binance
+Description=simplearbitrage
 After=network.target
 
 [Service]
