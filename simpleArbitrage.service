@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 EnvironmentFile=/root/simple-arbitrage/.env
-ExecStart=/root/.nvm/versions/node/v18.17.1/bin/node /root/simple-arbitrage/dist/binance/index.js
+ExecStart=/root/.nvm/versions/node/v18.17.1/bin/npm run start
 Type=simple
 User=root
 Restart=on-failure
