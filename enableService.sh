@@ -17,6 +17,8 @@ cat /lib/systemd/system/$serviceName.service
 systemctl daemon-reload
 
 systemctl enable $serviceName
+systemctl start $serviceName
+systemctl status $serviceName
 echo $serviceName
 
 echo "-------------"
