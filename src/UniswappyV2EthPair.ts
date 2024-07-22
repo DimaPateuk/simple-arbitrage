@@ -12,7 +12,7 @@ import { ETHER } from "./utils";
 import { MarketsByToken } from "./Arbitrage";
 
 // batch count limit helpful for testing, loading entire set of uniswap markets takes a long time to load
-const BATCH_COUNT_LIMIT = 100;
+const BATCH_COUNT_LIMIT = 10;
 const UNISWAP_BATCH_SIZE = 1000;
 
 // Not necessary, slightly speeds up loading initialization when we know tokens are bad
@@ -110,11 +110,13 @@ export class UniswappyV2EthPair extends EthMarket {
     provider: providers.JsonRpcProvider,
     factoryAddresses: Array<string>
   ): Promise<GroupedMarkets> {
+    console.time("allPairs");
     const allPairs = await Promise.all(
       _.map(factoryAddresses, (factoryAddress) =>
         UniswappyV2EthPair.getUniswappyMarkets(provider, factoryAddress)
       )
     );
+    console.timeEnd("allPairs");
 
     const marketsByTokenAll = _.chain(allPairs)
       .flatten()
@@ -157,7 +159,7 @@ export class UniswappyV2EthPair extends EthMarket {
     const pairAddresses = allMarketPairs.map(
       (marketPair) => marketPair.marketAddress
     );
-    console.log("Updating markets, count:", pairAddresses.length);
+    // console.log("Updating markets, count:", pairAddresses.length);
     const reserves: Array<Array<BigNumber>> = (
       await uniswapQuery.functions.getReservesByPairs(pairAddresses)
     )[0];

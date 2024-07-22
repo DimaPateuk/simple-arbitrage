@@ -83,31 +83,28 @@ async function main() {
   console.timeEnd("updateReserves");
 
   console.time("evaluateMarkets");
-  const bestCrossedMarkets = await arbitrage.evaluateMarkets(
-    markets.marketsByToken
-  );
+  await arbitrage.evaluateMarkets(markets.marketsByToken);
   console.timeEnd("evaluateMarkets");
 
-  console.log(bestCrossedMarkets);
-  // provider.on("block", async (blockNumber) => {
-  //   await UniswappyV2EthPair.updateReserves(provider, markets.allMarketPairs);
-  //   const bestCrossedMarkets = await arbitrage.evaluateMarkets(
-  //     markets.marketsByToken
-  //   );
-  //   if (bestCrossedMarkets.length === 0) {
-  //     console.log("No crossed markets at block number", blockNumber);
-  //     return;
-  //   }
-  //   bestCrossedMarkets.forEach(Arbitrage.printCrossedMarket);
-  //   arbitrage
-  //     .takeCrossedMarkets(
-  //       bestCrossedMarkets,
-  //       blockNumber,
-  //       MINER_REWARD_PERCENTAGE
-  //     )
-  //     .then(healthcheck)
-  //     .catch(console.error);
-  // });
+  provider.on("block", async (blockNumber) => {
+    await UniswappyV2EthPair.updateReserves(provider, markets.allMarketPairs);
+    const bestCrossedMarkets = await arbitrage.evaluateMarkets(
+      markets.marketsByToken
+    );
+    if (bestCrossedMarkets.length === 0) {
+      console.log("No crossed markets at block number", blockNumber);
+      return;
+    }
+    bestCrossedMarkets.forEach(Arbitrage.printCrossedMarket);
+    arbitrage
+      .takeCrossedMarkets(
+        bestCrossedMarkets,
+        blockNumber,
+        MINER_REWARD_PERCENTAGE
+      )
+      .then(healthcheck)
+      .catch(console.error);
+  });
 }
 
 main();
