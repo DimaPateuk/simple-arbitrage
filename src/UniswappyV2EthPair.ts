@@ -14,6 +14,9 @@ import { MarketsByToken } from "./Arbitrage";
 // batch count limit helpful for testing, loading entire set of uniswap markets takes a long time to load
 const BATCH_COUNT_LIMIT = 10;
 const UNISWAP_BATCH_SIZE = 1000;
+console.log(
+  `BATCH_COUNT_LIMIT=${BATCH_COUNT_LIMIT} UNISWAP_BATCH_SIZE=${UNISWAP_BATCH_SIZE} `
+);
 
 // Not necessary, slightly speeds up loading initialization when we know tokens are bad
 // Estimate gas will ensure we aren't submitting bad bundles, but bad tokens waste time
