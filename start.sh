@@ -4,4 +4,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 cd ~/simple-arbitrage
-npm run start
+npm run prod

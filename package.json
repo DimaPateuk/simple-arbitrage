@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "start": "tsx src/index.ts"
+    "start": "tsx src/index.ts",
+    "prod": "node build/index.js",
+    "build": "tsc"
   },
   "author": "",
   "license": "ISC",
