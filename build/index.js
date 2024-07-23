@@ -43,20 +43,14 @@ async function main() {
         (await flashbotsRelaySigningWallet.getAddress()));
     const flashbotsProvider = await types_1.FlashbotsBundleProvider.create(provider, flashbotsRelaySigningWallet);
     const arbitrage = new Arbitrage_1.Arbitrage(arbitrageSigningWallet, flashbotsProvider, new ethers_1.Contract(BUNDLE_EXECUTOR_ADDRESS, abi_1.BUNDLE_EXECUTOR_ABI, provider));
-    console.time("getUniswapMarketsByToken");
     const markets = await UniswappyV2EthPair_1.UniswappyV2EthPair.getUniswapMarketsByToken(provider, addresses_1.FACTORY_ADDRESSES);
-    console.timeEnd("getUniswapMarketsByToken");
-    console.time("updateReserves");
-    await UniswappyV2EthPair_1.UniswappyV2EthPair.updateReserves(provider, markets.allMarketPairs);
-    console.timeEnd("updateReserves");
-    console.time("evaluateMarkets");
-    await arbitrage.evaluateMarkets(markets.marketsByToken);
-    console.timeEnd("evaluateMarkets");
     provider.on("block", async (blockNumber) => {
+        console.time("takenTime");
         await UniswappyV2EthPair_1.UniswappyV2EthPair.updateReserves(provider, markets.allMarketPairs);
         const bestCrossedMarkets = await arbitrage.evaluateMarkets(markets.marketsByToken);
+        console.timeEnd("takenTime");
         if (bestCrossedMarkets.length === 0) {
-            console.log("No crossed markets at block number", blockNumber);
+            // console.log("No crossed markets at block number", blockNumber);
             return;
         }
         bestCrossedMarkets.forEach(Arbitrage_1.Arbitrage.printCrossedMarket);

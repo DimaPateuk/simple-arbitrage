@@ -71,28 +71,20 @@ async function main() {
     new Contract(BUNDLE_EXECUTOR_ADDRESS, BUNDLE_EXECUTOR_ABI, provider)
   );
 
-  console.time("getUniswapMarketsByToken");
   const markets = await UniswappyV2EthPair.getUniswapMarketsByToken(
     provider,
     FACTORY_ADDRESSES
   );
-  console.timeEnd("getUniswapMarketsByToken");
-
-  console.time("updateReserves");
-  await UniswappyV2EthPair.updateReserves(provider, markets.allMarketPairs);
-  console.timeEnd("updateReserves");
-
-  console.time("evaluateMarkets");
-  await arbitrage.evaluateMarkets(markets.marketsByToken);
-  console.timeEnd("evaluateMarkets");
 
   provider.on("block", async (blockNumber) => {
+    console.time("takenTime");
     await UniswappyV2EthPair.updateReserves(provider, markets.allMarketPairs);
     const bestCrossedMarkets = await arbitrage.evaluateMarkets(
       markets.marketsByToken
     );
+    console.timeEnd("takenTime");
     if (bestCrossedMarkets.length === 0) {
-      console.log("No crossed markets at block number", blockNumber);
+      // console.log("No crossed markets at block number", blockNumber);
       return;
     }
     bestCrossedMarkets.forEach(Arbitrage.printCrossedMarket);
