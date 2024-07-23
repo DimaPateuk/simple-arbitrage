@@ -77,12 +77,10 @@ async function main() {
   );
 
   provider.on("block", async (blockNumber) => {
-    console.time("takenTime");
     await UniswappyV2EthPair.updateReserves(provider, markets.allMarketPairs);
     const bestCrossedMarkets = await arbitrage.evaluateMarkets(
       markets.marketsByToken
     );
-    console.timeEnd("takenTime");
     if (bestCrossedMarkets.length === 0) {
       // console.log("No crossed markets at block number", blockNumber);
       return;

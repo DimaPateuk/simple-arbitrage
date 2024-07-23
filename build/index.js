@@ -45,10 +45,8 @@ async function main() {
     const arbitrage = new Arbitrage_1.Arbitrage(arbitrageSigningWallet, flashbotsProvider, new ethers_1.Contract(BUNDLE_EXECUTOR_ADDRESS, abi_1.BUNDLE_EXECUTOR_ABI, provider));
     const markets = await UniswappyV2EthPair_1.UniswappyV2EthPair.getUniswapMarketsByToken(provider, addresses_1.FACTORY_ADDRESSES);
     provider.on("block", async (blockNumber) => {
-        console.time("takenTime");
         await UniswappyV2EthPair_1.UniswappyV2EthPair.updateReserves(provider, markets.allMarketPairs);
         const bestCrossedMarkets = await arbitrage.evaluateMarkets(markets.marketsByToken);
-        console.timeEnd("takenTime");
         if (bestCrossedMarkets.length === 0) {
             // console.log("No crossed markets at block number", blockNumber);
             return;
