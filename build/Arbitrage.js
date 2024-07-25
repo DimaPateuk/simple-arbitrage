@@ -47,15 +47,15 @@ function getBestCrossedMarket(crossedMarkets, tokenAddress) {
         const sellToMarket = crossedMarket[0];
         const buyFromMarket = crossedMarket[1];
         for (const size of TEST_VOLUMES) {
-            const tokensOutFromBuyingSize = buyFromMarket.getTokensOut(addresses_1.WETH_ADDRESS, tokenAddress, size);
-            const proceedsFromSellingTokens = sellToMarket.getTokensOut(tokenAddress, addresses_1.WETH_ADDRESS, tokensOutFromBuyingSize);
+            const tokensOutFromBuyingSize = buyFromMarket.getTokensOut(addresses_1.USDT_ADDRESS, tokenAddress, size);
+            const proceedsFromSellingTokens = sellToMarket.getTokensOut(tokenAddress, addresses_1.USDT_ADDRESS, tokensOutFromBuyingSize);
             const profit = proceedsFromSellingTokens.sub(size);
             if (bestCrossedMarket !== undefined &&
                 profit.lt(bestCrossedMarket.profit)) {
                 // If the next size up lost value, meet halfway. TODO: replace with real binary search
                 const trySize = size.add(bestCrossedMarket.volume).div(2);
-                const tryTokensOutFromBuyingSize = buyFromMarket.getTokensOut(addresses_1.WETH_ADDRESS, tokenAddress, trySize);
-                const tryProceedsFromSellingTokens = sellToMarket.getTokensOut(tokenAddress, addresses_1.WETH_ADDRESS, tryTokensOutFromBuyingSize);
+                const tryTokensOutFromBuyingSize = buyFromMarket.getTokensOut(addresses_1.USDT_ADDRESS, tokenAddress, trySize);
+                const tryProceedsFromSellingTokens = sellToMarket.getTokensOut(tokenAddress, addresses_1.USDT_ADDRESS, tryTokensOutFromBuyingSize);
                 const tryProfit = tryProceedsFromSellingTokens.sub(trySize);
                 if (tryProfit.gt(bestCrossedMarket.profit)) {
                     bestCrossedMarket = {
@@ -102,8 +102,8 @@ class Arbitrage {
             const pricedMarkets = _.map(markets, (ethMarket) => {
                 return {
                     ethMarket: ethMarket,
-                    buyTokenPrice: ethMarket.getTokensIn(tokenAddress, addresses_1.WETH_ADDRESS, utils_1.ETHER.div(100)),
-                    sellTokenPrice: ethMarket.getTokensOut(addresses_1.WETH_ADDRESS, tokenAddress, utils_1.ETHER.div(100)),
+                    buyTokenPrice: ethMarket.getTokensIn(tokenAddress, addresses_1.USDT_ADDRESS, utils_1.ETHER.div(100)),
+                    sellTokenPrice: ethMarket.getTokensOut(addresses_1.USDT_ADDRESS, tokenAddress, utils_1.ETHER.div(100)),
                 };
             });
             const crossedMarkets = new Array();
@@ -127,8 +127,8 @@ class Arbitrage {
     async takeCrossedMarkets(bestCrossedMarkets, blockNumber, minerRewardPercentage) {
         for (const bestCrossedMarket of bestCrossedMarkets) {
             console.log("Send this much WETH", bestCrossedMarket.volume.toString(), "get this much profit", bestCrossedMarket.profit.toString());
-            const buyCalls = await bestCrossedMarket.buyFromMarket.sellTokensToNextMarket(addresses_1.WETH_ADDRESS, bestCrossedMarket.volume, bestCrossedMarket.sellToMarket);
-            const inter = bestCrossedMarket.buyFromMarket.getTokensOut(addresses_1.WETH_ADDRESS, bestCrossedMarket.tokenAddress, bestCrossedMarket.volume);
+            const buyCalls = await bestCrossedMarket.buyFromMarket.sellTokensToNextMarket(addresses_1.USDT_ADDRESS, bestCrossedMarket.volume, bestCrossedMarket.sellToMarket);
+            const inter = bestCrossedMarket.buyFromMarket.getTokensOut(addresses_1.USDT_ADDRESS, bestCrossedMarket.tokenAddress, bestCrossedMarket.volume);
             const sellCallData = await bestCrossedMarket.sellToMarket.sellTokens(bestCrossedMarket.tokenAddress, inter, this.bundleExecutorContract.address);
             const targets = [
                 ...buyCalls.targets,

@@ -1,6 +1,6 @@
 import * as _ from "lodash";
 import { BigNumber, Contract, Wallet } from "ethers";
-import { WETH_ADDRESS } from "./addresses";
+import { USDT_ADDRESS } from "./addresses";
 import { EthMarket } from "./EthMarket";
 import { ETHER, bigNumberToDecimal } from "./utils";
 import { FlashbotsBundleProvider } from "./types";
@@ -38,13 +38,13 @@ export function getBestCrossedMarket(
     const buyFromMarket = crossedMarket[1];
     for (const size of TEST_VOLUMES) {
       const tokensOutFromBuyingSize = buyFromMarket.getTokensOut(
-        WETH_ADDRESS,
+        USDT_ADDRESS,
         tokenAddress,
         size
       );
       const proceedsFromSellingTokens = sellToMarket.getTokensOut(
         tokenAddress,
-        WETH_ADDRESS,
+        USDT_ADDRESS,
         tokensOutFromBuyingSize
       );
       const profit = proceedsFromSellingTokens.sub(size);
@@ -55,13 +55,13 @@ export function getBestCrossedMarket(
         // If the next size up lost value, meet halfway. TODO: replace with real binary search
         const trySize = size.add(bestCrossedMarket.volume).div(2);
         const tryTokensOutFromBuyingSize = buyFromMarket.getTokensOut(
-          WETH_ADDRESS,
+          USDT_ADDRESS,
           tokenAddress,
           trySize
         );
         const tryProceedsFromSellingTokens = sellToMarket.getTokensOut(
           tokenAddress,
-          WETH_ADDRESS,
+          USDT_ADDRESS,
           tryTokensOutFromBuyingSize
         );
         const tryProfit = tryProceedsFromSellingTokens.sub(trySize);
@@ -130,11 +130,11 @@ export class Arbitrage {
           ethMarket: ethMarket,
           buyTokenPrice: ethMarket.getTokensIn(
             tokenAddress,
-            WETH_ADDRESS,
+            USDT_ADDRESS,
             ETHER.div(100)
           ),
           sellTokenPrice: ethMarket.getTokensOut(
-            WETH_ADDRESS,
+            USDT_ADDRESS,
             tokenAddress,
             ETHER.div(100)
           ),
@@ -182,12 +182,12 @@ export class Arbitrage {
       );
       const buyCalls =
         await bestCrossedMarket.buyFromMarket.sellTokensToNextMarket(
-          WETH_ADDRESS,
+          USDT_ADDRESS,
           bestCrossedMarket.volume,
           bestCrossedMarket.sellToMarket
         );
       const inter = bestCrossedMarket.buyFromMarket.getTokensOut(
-        WETH_ADDRESS,
+        USDT_ADDRESS,
         bestCrossedMarket.tokenAddress,
         bestCrossedMarket.volume
       );

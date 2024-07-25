@@ -1,7 +1,7 @@
 import * as _ from "lodash";
 import { BigNumber, Contract, providers } from "ethers";
 import { UNISWAP_PAIR_ABI, UNISWAP_QUERY_ABI } from "./abi";
-import { UNISWAP_LOOKUP_CONTRACT_ADDRESS, WETH_ADDRESS } from "./addresses";
+import { UNISWAP_LOOKUP_CONTRACT_ADDRESS, USDT_ADDRESS } from "./addresses";
 import {
   CallDetails,
   EthMarket,
@@ -28,7 +28,7 @@ interface GroupedMarkets {
 }
 
 export class UniswappyV2EthPair extends EthMarket {
-  static uniswapInterface = new Contract(WETH_ADDRESS, UNISWAP_PAIR_ABI);
+  static uniswapInterface = new Contract(USDT_ADDRESS, UNISWAP_PAIR_ABI);
   private _tokenBalances: TokenBalances;
 
   constructor(marketAddress: string, tokens: Array<string>, protocol: string) {
@@ -85,9 +85,9 @@ export class UniswappyV2EthPair extends EthMarket {
         const marketAddress = pair[2];
         let tokenAddress: string;
 
-        if (pair[0] === WETH_ADDRESS) {
+        if (pair[0] === USDT_ADDRESS) {
           tokenAddress = pair[1];
-        } else if (pair[1] === WETH_ADDRESS) {
+        } else if (pair[1] === USDT_ADDRESS) {
           tokenAddress = pair[0];
         } else {
           continue;
@@ -124,7 +124,7 @@ export class UniswappyV2EthPair extends EthMarket {
     const marketsByTokenAll = _.chain(allPairs)
       .flatten()
       .groupBy((pair) =>
-        pair.tokens[0] === WETH_ADDRESS ? pair.tokens[1] : pair.tokens[0]
+        pair.tokens[0] === USDT_ADDRESS ? pair.tokens[1] : pair.tokens[0]
       )
       .value();
 
@@ -138,9 +138,9 @@ export class UniswappyV2EthPair extends EthMarket {
     await UniswappyV2EthPair.updateReserves(provider, allMarketPairs);
 
     const marketsByToken = _.chain(allMarketPairs)
-      .filter((pair) => pair.getBalance(WETH_ADDRESS).gt(ETHER))
+      .filter((pair) => pair.getBalance(USDT_ADDRESS).gt(ETHER))
       .groupBy((pair) =>
-        pair.tokens[0] === WETH_ADDRESS ? pair.tokens[1] : pair.tokens[0]
+        pair.tokens[0] === USDT_ADDRESS ? pair.tokens[1] : pair.tokens[0]
       )
       .value();
 
@@ -256,6 +256,7 @@ export class UniswappyV2EthPair extends EthMarket {
       amountIn,
       ethMarket.marketAddress
     );
+
     return {
       data: [exchangeCall],
       targets: [this.marketAddress],

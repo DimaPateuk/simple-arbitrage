@@ -67,10 +67,10 @@ class UniswappyV2EthPair extends EthMarket_1.EthMarket {
                 const pair = pairs[i];
                 const marketAddress = pair[2];
                 let tokenAddress;
-                if (pair[0] === addresses_1.WETH_ADDRESS) {
+                if (pair[0] === addresses_1.USDT_ADDRESS) {
                     tokenAddress = pair[1];
                 }
-                else if (pair[1] === addresses_1.WETH_ADDRESS) {
+                else if (pair[1] === addresses_1.USDT_ADDRESS) {
                     tokenAddress = pair[0];
                 }
                 else {
@@ -93,7 +93,7 @@ class UniswappyV2EthPair extends EthMarket_1.EthMarket {
         console.timeEnd("allPairs");
         const marketsByTokenAll = _.chain(allPairs)
             .flatten()
-            .groupBy((pair) => pair.tokens[0] === addresses_1.WETH_ADDRESS ? pair.tokens[1] : pair.tokens[0])
+            .groupBy((pair) => pair.tokens[0] === addresses_1.USDT_ADDRESS ? pair.tokens[1] : pair.tokens[0])
             .value();
         const allMarketPairs = _.chain(_.pickBy(marketsByTokenAll, (a) => a.length > 1) // weird TS bug, chain'd pickBy is Partial<>
         )
@@ -102,8 +102,8 @@ class UniswappyV2EthPair extends EthMarket_1.EthMarket {
             .value();
         await UniswappyV2EthPair.updateReserves(provider, allMarketPairs);
         const marketsByToken = _.chain(allMarketPairs)
-            .filter((pair) => pair.getBalance(addresses_1.WETH_ADDRESS).gt(utils_1.ETHER))
-            .groupBy((pair) => pair.tokens[0] === addresses_1.WETH_ADDRESS ? pair.tokens[1] : pair.tokens[0])
+            .filter((pair) => pair.getBalance(addresses_1.USDT_ADDRESS).gt(utils_1.ETHER))
+            .groupBy((pair) => pair.tokens[0] === addresses_1.USDT_ADDRESS ? pair.tokens[1] : pair.tokens[0])
             .value();
         return {
             marketsByToken,
@@ -195,5 +195,5 @@ class UniswappyV2EthPair extends EthMarket_1.EthMarket {
     }
 }
 exports.UniswappyV2EthPair = UniswappyV2EthPair;
-UniswappyV2EthPair.uniswapInterface = new ethers_1.Contract(addresses_1.WETH_ADDRESS, abi_1.UNISWAP_PAIR_ABI);
+UniswappyV2EthPair.uniswapInterface = new ethers_1.Contract(addresses_1.USDT_ADDRESS, abi_1.UNISWAP_PAIR_ABI);
 //# sourceMappingURL=UniswappyV2EthPair.js.map
